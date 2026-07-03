@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "orgChart": {
+      "title": "OrgChart",
+      "description": "An organizational chart containing settings and owned by a user.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the user who owns this org chart"
+        },
+        "settings": {
+          "type": "object",
+          "description": "ChartSettings object"
+        },
+        "createdAt": {
+          "type": "timestamp"
+        },
+        "updatedAt": {
+          "type": "timestamp"
+        }
+      },
+      "required": ["ownerId", "settings", "createdAt", "updatedAt"]
+    },
+    "contactNode": {
+      "title": "ContactNode",
+      "description": "A node in the org chart.",
+      "type": "object",
+      "properties": {
+        "ownerId": { "type": "string" },
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "department": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "managerId": { "type": ["string", "null"] },
+        "relationship": { "type": "string" },
+        "influence": { "type": "string" },
+        "notes": { "type": "string" },
+        "isPlaceholder": { "type": "boolean" },
+        "customFields": { "type": "object" },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["ownerId", "name", "title", "department", "email", "phone", "relationship", "influence", "isPlaceholder"]
+    }
+  },
+  "firestore": {
+    "/orgCharts/{chartId}": {
+      "schema": { "$ref": "#/entities/orgChart" },
+      "description": "Stores the user's root configuration for an org chart"
+    },
+    "/orgCharts/{chartId}/nodes/{nodeId}": {
+      "schema": { "$ref": "#/entities/contactNode" },
+      "description": "Stores individual nodes associated with the specific org chart"
+    }
+  }
+}

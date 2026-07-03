@@ -1,0 +1,8 @@
+{
+  "name": "OrgChart Builder",
+  "description": "Trình tạo sơ đồ tổ chức tương tác chuyên nghiệp hỗ trợ quản lý cấp bậc báo cáo, theo dõi thái độ quan hệ, cấu hình trường thuộc tính tùy chỉnh và trợ lý AI phân tích kịch bản thô.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
